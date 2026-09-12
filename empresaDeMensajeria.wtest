@@ -1,0 +1,33 @@
+import mensajeros.*
+import paquetes.*
+
+object empresa {
+  
+const empleados = [Roberto, Neo, ChuckNorris]
+
+  method contratarMensajero(mensajero) {
+    return empleados.add(mensajero)
+  }
+
+  method despedirMensajero(){
+    return empleados.clear()
+  }
+
+  method despedirTodosLosMensajeros(){
+    return empleados.removeAll(mensajeros)
+  }
+
+  method mensajeriaEsGrande(){
+    return empleados.size() > 2
+  }
+
+  method elPaquetePuedeSerEntregadoPorElPrimerMensajero(paquete){
+    if (empleados.isEmpty()) self.error("No hay empleados")
+    return paquete.puedeSerEntregadoPor(empleados.first())
+  }
+
+  method pesoDelUltmoMensajero() {
+     if (empleados.isEmpty()) self.error("No hay empleados")
+    return empleados.last().peso() // Todos entienden .peso()
+  }
+}
